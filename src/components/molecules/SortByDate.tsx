@@ -24,7 +24,9 @@ export const SortByDate: React.FC<SortByDateType> = ({setProjects}) => {
 
     // Handle sort projects by date
     const handleChange = (sortedType: SortingByDateType): void => {
-        setProjects((prevProjects: Array<ProjectType>) => sortArrayByDate(prevProjects, "creationDate", sortedType))
+        setProjects((prevProjects: Array<ProjectType>) =>
+            sortArrayByDate(prevProjects, "creationDate", sortedType)
+        )
     }
 
     return (

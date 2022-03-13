@@ -27,9 +27,9 @@ export const StatusFilter: React.FC<StatusFilterType> = ({setProjects, initialPr
     }
 
     useEffect(() => {
-        setProjects((prevProjects: Array<ProjectType>) => {
+        setProjects(() => {
             if (selectedStatus !== ALL_STATUS) {
-                const filteredProjects = prevProjects.filter(project => project.status?.toLowerCase().includes(selectedStatus.toLowerCase()))
+                const filteredProjects = initialProjects.filter(project => project.status?.toLowerCase().includes(selectedStatus.toLowerCase()))
                 if (!filteredProjects.length) {
                     setNoProject(true)
                     return filteredProjects

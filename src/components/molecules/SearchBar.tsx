@@ -26,9 +26,9 @@ export const SearchBar: React.FC<SearchBarType> = ({setProjects, initialProjects
     }
 
     useEffect(() => {
-        setProjects((prevProjects: Array<ProjectType>) => {
+        setProjects(() => {
             if (searchField) {
-                const filteredProjects = prevProjects.filter(project => project.projectName?.toLowerCase().includes(searchField.toLowerCase()))
+                const filteredProjects = initialProjects.filter(project => project.projectName?.toLowerCase().includes(searchField.toLowerCase()))
                 setNoProject(!filteredProjects.length)
                 return filteredProjects
             }

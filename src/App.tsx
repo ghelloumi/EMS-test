@@ -18,20 +18,20 @@ function App() {
 
     // Specify that API is called once on page load
     useEffect(() => {
-            (async () => {
-                setLoading(true)
-                try {
-                    const projectsFromServer = await appService.fetchProjects();
-                    const projectsList = projectsFromServer && addUniqueId(projectsFromServer.data)
-                    setProjects(projectsList);
-                    setInitialProjects(projectsList)
-                } catch (e) {
-                    console.error(e)
-                    setError(true)
-                } finally {
-                    setLoading(false)
-                }
-            })()
+        (async () => {
+            setLoading(true)
+            try {
+                const projectsFromServer = await appService.fetchProjects();
+                const projectsList = projectsFromServer && addUniqueId(projectsFromServer.data)
+                setProjects(projectsList);
+                setInitialProjects(projectsList)
+            } catch (e) {
+                console.error(e)
+                setError(true)
+            } finally {
+                setLoading(false)
+            }
+        })()
     }, []);
 
     // If there is an error loading data

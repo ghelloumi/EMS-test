@@ -18,25 +18,24 @@ const useProjectsListStyles = makeStyles({
 export const ProjectsList: React.FC<ProjectsListProps> = ({projects}) => {
     const classes = useProjectsListStyles();
     const projectsPerPage = 20;
-
     const [projectToShowOnPage, setProjectsToShowOnPage] = useState<Array<ProjectType>>([...projects.slice(0, projectsPerPage + 1)]);
 
     let projectsNumber = projectsPerPage;
-
 
     function handleScroll() {
         const isAtBottom = document.documentElement.scrollHeight - document.documentElement.scrollTop <= document.documentElement.clientHeight;
 
         if (isAtBottom) {
-
-            console.log('oooo')
-
-            // Load next posts
             projectsNumber += projectsPerPage;
-
             setProjectsToShowOnPage([...projects.slice(0, projectsNumber + 1)]);
         }
     }
+
+    useEffect(() => {
+        setProjectsToShowOnPage([...projects.slice(0, projectsPerPage + 1)])
+        projectsNumber = projectsPerPage
+    }, [projects]);
+
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -45,7 +44,6 @@ export const ProjectsList: React.FC<ProjectsListProps> = ({projects}) => {
             window.removeEventListener("scroll", handleScroll)
         }
     }, []);
-
 
     return (
         <div className={classes.container}>

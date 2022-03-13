@@ -72,10 +72,10 @@ describe('App', () => {
     await waitFor(() => {
       const wrapperNode = getByTestId("search-bar")
 
-      fireEvent.change(wrapperNode, { target: { value: "Tom Company" } });
+      fireEvent.change(wrapperNode, { target: { value: "T" } });
 
       expect(getAllByTestId("name")[0]).toBeInTheDocument();
-      expect(getAllByTestId("name")).toHaveLength(1)
+      expect(getAllByTestId("name")).toHaveLength(21)
     });
   })
 });
