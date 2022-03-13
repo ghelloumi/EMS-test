@@ -25,7 +25,11 @@ export const Filters: React.FC<FiltersType> = ({setProjects, initialProjects, se
 
     return (
         <div className={classes.root}>
+            <StatusFilter setProjects={setProjects} initialProjects={initialProjects} setNoProject={setNoProject}/>
+            <SearchBar setProjects={setProjects} initialProjects={initialProjects} setNoProject={setNoProject}/>
             <SortByDate setProjects={setProjects}/>
+            <SearchInDateRange setProjects={setProjects} setNoProject={setNoProject}
+                               initialProjects={initialProjects}/>
         </div>
     );
 };
