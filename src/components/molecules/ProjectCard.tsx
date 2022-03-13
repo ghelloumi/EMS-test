@@ -13,6 +13,7 @@ const useCardStyles = makeStyles({
     root: {
         width: 350,
         margin: 10,
+        padding: 10
     },
     title: {
         fontSize: 14,

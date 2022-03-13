@@ -4,6 +4,7 @@ import {addUniqueId} from "./common/utils";
 import {AppService} from "./services/app.service";
 import {Filters} from "./components/organisms/Filters";
 import {ProjectsList} from "./components/molecules/ProjectsList";
+import {Loader} from "./components/atoms/Loader";
 
 function App() {
     // Hooks
@@ -44,7 +45,7 @@ function App() {
     // If data is loading from server
     if (loading) {
         return (
-            <div>Loading data...</div>
+            <Loader/>
         )
     }
 
