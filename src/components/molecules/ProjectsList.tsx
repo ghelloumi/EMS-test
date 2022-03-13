@@ -1,7 +1,7 @@
 import React from "react";
 import {ProjectCard} from "./ProjectCard";
 import {makeStyles} from "@material-ui/core/styles";
-import {ProjectType} from "../common/types/ProjectType";
+import {ProjectType} from "../../common/types/ProjectType";
 
 interface ProjectsListProps {
     projects: Array<ProjectType>;

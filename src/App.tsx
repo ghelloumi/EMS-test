@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {AppService} from "./services/app.service";
 import {ProjectType} from "./common/types/ProjectType";
-import {ProjectsList} from "./components/ProjectsList";
 import {addUniqueId} from "./common/utils";
+import {AppService} from "./services/app.service";
 import {Filters} from "./components/organisms/Filters";
+import {ProjectsList} from "./components/molecules/ProjectsList";
 
 function App() {
     // Hooks
