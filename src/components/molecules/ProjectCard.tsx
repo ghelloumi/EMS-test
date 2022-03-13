@@ -39,10 +39,10 @@ export const ProjectCard: React.FC<CardProps> = ({date, name, status}) => {
                 >
                     {toDate.toUTCString()}
                 </Typography>}
-                {name && <Typography variant="h5" component="h2">
+                {name && <Typography variant="h5" component="h2" data-testid="name">
                     {name}
                 </Typography>}
-                {status && <Typography className={classes.status}>
+                {status && <Typography className={classes.status} data-testid="status">
                     {status}
                 </Typography>}
             </div>

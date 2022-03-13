@@ -7,7 +7,8 @@ interface DatePickerType {
     handleChange: any,
     value: string,
     maxDate?: string,
-    minDate?:string
+    minDate?: string
+    testId: string
 }
 
 const useDatePickerStyles = makeStyles({
@@ -17,18 +18,18 @@ const useDatePickerStyles = makeStyles({
     }
 })
 
-export const DatePicker: React.FC<DatePickerType> = ({label, handleChange, value, minDate, maxDate}) => {
+export const DatePicker: React.FC<DatePickerType> = ({label, handleChange, value, minDate, maxDate, testId}) => {
     const classes = useDatePickerStyles();
     const ref = useRef();
 
     useEffect(() => {
         if (ref?.current) {
-            if(maxDate) {
+            if (maxDate) {
                 // @ts-ignore
                 ref.current?.setAttribute('max', maxDate)
             }
 
-            if(minDate) {
+            if (minDate) {
                 // @ts-ignore
                 ref.current?.setAttribute('min', minDate)
             }
@@ -45,13 +46,17 @@ export const DatePicker: React.FC<DatePickerType> = ({label, handleChange, value
         <TextField
             inputRef={ref}
             className={classes.root}
-            id="range-start-date"
+            id="range-date-picker"
             label={label}
             type="date"
             onChange={handleChangeDate}
             value={value}
             InputLabelProps={{
                 shrink: true,
+            }}
+            InputProps={{
+                // @ts-ignore
+                'data-testid': testId
             }}
         />
     );

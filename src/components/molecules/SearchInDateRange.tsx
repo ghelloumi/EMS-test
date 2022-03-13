@@ -38,8 +38,6 @@ export const SearchInDateRange: React.FC<SearchInDateRangeType> = ({setProjects,
                     moment(project.creationDate).isBefore(date2) && project
                 )
 
-                console.log(filteredProjects)
-
                 setNoProject(!filteredProjects.length)
 
                 return filteredProjects
@@ -53,14 +51,17 @@ export const SearchInDateRange: React.FC<SearchInDateRangeType> = ({setProjects,
             <FormLabel id="date-range-filter-label">Search Projects in Date Range</FormLabel>
             <div className={classes.formElementsContainer}>
                 <div>
-                    <DatePicker label={"Start"} handleChange={(date: string) => setDate1(date)} value={date1}
-                                maxDate={date2}/>
-                    <DatePicker label={"End"} handleChange={(date: string) => setDate2(date)} value={date2}
-                                minDate={date1}/>
+                    <DatePicker label="Start" handleChange={(date: string) => {
+                        setDate1(date)
+                    }} value={date1}
+                                maxDate={date2} testId="start-date-picker"/>
+                    <DatePicker label="End" handleChange={(date: string) => setDate2(date)} value={date2}
+                                minDate={date1} testId="end-date-picker"/>
                 </div>
                 <Button
                     onClick={handleSearch}
                     variant="contained"
+                    data-testid="search-button"
                 >
                     Search
                 </Button>

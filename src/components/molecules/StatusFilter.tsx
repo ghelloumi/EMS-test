@@ -53,6 +53,7 @@ export const StatusFilter: React.FC<StatusFilterType> = ({setProjects, initialPr
                 value={selectedStatus}
                 label={selectedStatus}
                 onChange={handleSelectStatus}
+                inputProps={{ "data-testid": "status-selector" }}
             >
                 {STATUS.map(e =>
                     <MenuItem key={e} value={e}>{e}</MenuItem>

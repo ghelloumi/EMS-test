@@ -41,7 +41,7 @@ export const SearchBar: React.FC<SearchBarType> = ({setProjects, initialProjects
     return (
         <FormControl className={classes.root} fullWidth>
             <InputLabel id="search-label">Search project by name</InputLabel>
-            <Input id="search-input" onChange={handleSearch} value={searchField}/>
+            <Input id="search-input" onChange={handleSearch} value={searchField} inputProps={{ "data-testid": "search-bar" }}/>
         </FormControl>
     );
 };
